@@ -12,7 +12,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        /*if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Instantiate(normalBullet, transform.position, transform.rotation);
         }
@@ -24,6 +24,18 @@ public class PlayerShooting : MonoBehaviour
                 speacialBulletNum--;
             }
             
+        }*/
+    }
+
+    public void OnFire(InputValue value)
+    {
+        Debug.Log("OnFire »£√‚µ ");
+        if (value.isPressed)
+        {
+            GameObject clone = Instantiate(normalBullet);
+
+            clone.transform.position = shootPoint.transform.position;
+            clone.transform.rotation = shootPoint.transform.rotation;
         }
     }
 }

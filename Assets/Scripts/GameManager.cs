@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        /*if (Input.GetKeyDown(KeyCode.Q))
         {
             SceneManager.LoadScene("Die");
-        }
+        }*/
     }
 }
