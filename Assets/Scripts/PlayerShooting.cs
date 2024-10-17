@@ -5,37 +5,42 @@ using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
-    public int speacialBulletNum;
+    public int specialBulletNum;
     public GameObject normalBullet;
     public GameObject specialBullet;
     public GameObject shootPoint;
 
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Mouse0))
+/*        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Instantiate(normalBullet, transform.position, transform.rotation);
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (speacialBulletNum > 0) 
+            if (specialBulletNum > 0)
             {
                 Instantiate(specialBullet, transform.position, transform.rotation);
-                speacialBulletNum--;
+                specialBulletNum--;
             }
-            
+
         }*/
     }
 
-    public void OnFire(InputValue value)
+    public void OnNormalShoot(InputValue value)
     {
-        Debug.Log("OnFire È£ÃâµÊ");
         if (value.isPressed)
         {
-            GameObject clone = Instantiate(normalBullet);
+            Instantiate(normalBullet, transform.position, transform.rotation);
+        }
+    }
 
-            clone.transform.position = shootPoint.transform.position;
-            clone.transform.rotation = shootPoint.transform.rotation;
+    public void OnSpecialShoot(InputValue value)
+    {
+        if (value.isPressed && specialBulletNum > 0)
+        {
+            GameObject clone = Instantiate(specialBullet, transform.position, transform.rotation);
+            specialBulletNum--;
         }
     }
 }
