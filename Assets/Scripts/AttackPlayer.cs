@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AttackPlayer : MonoBehaviour
 {
-    public float speed = 3f; // 적의 이동 속도
+    public float speed = 2f; // 적의 이동 속도
     public float rotationSpeed = 5f; // 적의 회전 속도
     private Sight sight; // Sight 컴포넌트를 참조할 변수
     private Collider playerCollider; // 충돌할 플레이어의 콜라이더
-    private bool isAttacking = false; // 공격 상태를 나타내는 변수
+    protected bool isAttacking = false; // 공격 상태를 나타내는 변수
 
     void Start()
     {
@@ -44,6 +44,11 @@ public class AttackPlayer : MonoBehaviour
         }
     }
 
+    public bool IsAttacking()
+    {
+        return isAttacking; // 공격 상태 반환
+    }
+
     private void MoveTowardsPlayer()
     {
         // 플레이어와의 거리 계산
@@ -68,5 +73,4 @@ public class AttackPlayer : MonoBehaviour
         newPosition.y = transform.position.y; // y축을 고정
         transform.position = newPosition; // 새로운 위치로 설정
     }
-
 }
