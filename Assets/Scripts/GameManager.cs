@@ -5,30 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    public static GameManager Instance;
+
+    public int playerKills;
 
     void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance = null)
         {
-            Destroy(gameObject);
-            return;
+            Instance = this;
         }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
-    void Start()
-    {
         
+        DontDestroyOnLoad(gameObject);
+
+
     }
 
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SceneManager.LoadScene("Die");
-        }*/
+        
     }
 }
